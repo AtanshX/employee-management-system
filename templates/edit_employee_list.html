@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Employee</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('static/images/img3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 32px;
+    }
+
+    .message {
+      text-align: center;
+      color: #00ff88;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .table-container {
+      width: 90%;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      background-color: rgba(0, 123, 255, 0.4);
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    a.button {
+      background: rgba(255, 165, 0, 0.9);
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: bold;
+    }
+
+    a.button:hover {
+      background-color: rgba(255, 140, 0, 0.95);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>✏️ Edit Employee</h2>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <p class="message">{{ messages[0] }}</p>
+    {% endif %}
+  {% endwith %}
+
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+      {% for emp in employees %}
+      <tr>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.role }}</td>
+        <td><a class="button" href="/edit_employee/{{ emp.id }}">Edit</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+</body>
+</html>

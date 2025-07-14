@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('static/images/img4.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .topnav {
+      background-color: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      overflow: hidden;
+      padding: 10px 20px;
+      text-align: right;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .logout-button {
+      background-color: rgba(220, 53, 69, 0.9);
+      color: white;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-button:hover {
+      background-color: rgba(200, 35, 51, 0.95);
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-top: 60px;
+      font-size: 28px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 12px;
+      background: rgba(40, 167, 69, 0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 500;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    a.button:hover {
+      background: rgba(40, 167, 69, 0.35);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topnav">
+    <a href="{{ url_for('logout') }}" class="logout-button">🔓 Logout</a>
+  </div>
+
+  <h1>Welcome, {{ name }} (Employee)</h1>
+
+  <div class="btn-container">
+    <a href="/apply_leave" class="button">📅 Apply for Leave</a>
+    <a href="/my_attendance" class="button">📊 View Attendance</a>
+    <a href="/change_password" class="button">🔒 Change Password</a>
+    <a href="/face_attendance" class="button">📷 Mark Face Attendance</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply for Leave</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('static/images/img4.jpg') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      max-width: 450px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      color: white;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #ddd;
+    }
+
+    button {
+      background-color: rgba(0, 123, 255, 0.85);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: rgba(0, 86, 179, 0.95);
+      transform: scale(1.03);
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: rgba(0, 123, 255, 0.2);
+      padding: 10px 16px;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      transition: 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: rgba(0, 123, 255, 0.35);
+    }
+
+    table {
+      margin: 50px auto 20px;
+      border-collapse: collapse;
+      width: 90%;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      color: white;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: rgba(0, 123, 255, 0.7);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .status-Pending {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .status-Approved {
+      color: lightgreen;
+      font-weight: bold;
+    }
+
+    .status-Rejected {
+      color: red;
+      font-weight: bold;
+    }
+
+    p {
+      color: white;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📅 Apply for Leave</h2>
+
+  <form method="POST">
+    <label>From Date:</label>
+    <input type="date" name="from_date" required>
+
+    <label>To Date:</label>
+    <input type="date" name="to_date" required>
+
+    <label>Reason:</label>
+    <textarea name="reason" rows="4" placeholder="Enter your reason..." required></textarea>
+
+    <button type="submit">Submit Leave Request</button>
+  </form>
+
+  <a href="/employee_dashboard" class="button">⬅ Back to Dashboard</a>
+
+  <h2>📋 My Leave Requests</h2>
+
+  {% if leave_history %}
+    <table>
+      <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Reason</th>
+        <th>Status</th>
+      </tr>
+      {% for leave in leave_history %}
+      <tr>
+        <td>{{ leave.from_date }}</td>
+        <td>{{ leave.to_date }}</td>
+        <td>{{ leave.reason }}</td>
+        <td class="status-{{ leave.status }}">{{ leave.status }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No leave requests found.</p>
+  {% endif %}
+
+</body>
+</html>

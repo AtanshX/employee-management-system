@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HRMS | Home</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url("{{ url_for('static', filename='images/img1.jpeg') }}") no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .glass-container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      padding: 40px 60px;
+      color: #fff;
+      max-width: 500px;
+    }
+
+    .glass-container h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .glass-container p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #00bcd4;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #00acc1;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-container">
+    <h1>HRMS Portal</h1>
+    <p>Designed by <strong>Atansh Dhiman</strong></p>
+    <a href="/login" class="button">🔐 Login to Continue</a>
+  </div>
+</body>
+</html>

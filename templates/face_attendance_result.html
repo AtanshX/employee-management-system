@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Face Attendance</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('static/images/img3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    .result {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: {% if result.startswith('✅') %}#00ff88{% else %}#ff5e5e{% endif %};
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: rgba(0, 123, 255, 0.9);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    a.button:hover {
+      background-color: rgba(0, 86, 179, 0.95);
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 Face Attendance Result</h1>
+    <div class="result">{{ result }}</div>
+    <a href="/employee_dashboard" class="button">⬅ Back to Dashboard</a>
+  </div>
+</body>
+</html>

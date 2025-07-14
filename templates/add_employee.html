@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Employee</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('/static/images/img3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      width: 100%;
+      max-width: 450px;
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 15px;
+    }
+
+    input::placeholder {
+      color: #ddd;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: rgba(40, 167, 69, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: rgba(40, 167, 69, 0.4);
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" enctype="multipart/form-data">
+    <h2>Add New Employee</h2>
+
+    <label>Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Phone</label>
+    <input type="text" name="phone" required>
+
+    <label>Role</label>
+    <select name="role" required>
+      <option value="employee">Employee</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <label>Base Salary (Optional)</label>
+    <input type="number" name="base_salary" step="0.01">
+
+    <label>Upload Face Photo</label>
+    <input type="file" name="photo" accept="image/*" required>
+
+    <button type="submit">➕ Add Employee</button>
+  </form>
+</body>
+</html>
